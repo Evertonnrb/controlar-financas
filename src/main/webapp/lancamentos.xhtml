@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lançamentos</title>
+<h:outputStylesheet library="style" name="estilos.css"/>
+<h:outputScript library="script" name="script.js"/>
+</h:head>
+<h:body>
+	<h:graphicImage value="/imagens/logo.png"/>
+	<h:form id="formLancamentos">
+		<h:dataTable var="lancamentos" value="#{lancamentoBean.lancamentos}" width="100%" rowClasses="linha1,linha2"
+		headerClass="cabecalho" styleClass="tabela">
+			<h:column>
+				<h:graphicImage value="/imagens/flecha-vermelha.png"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Pessoa"/>
+				</f:facet>
+				<h:outputText value="Escolinha Infantil Abelha vermelha"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Descrição"/>
+				</f:facet>
+				<h:outputText value="Escola filhos"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Valor"/>
+				</f:facet>
+				<h:outputText value="R$ 750,00" styleClass="despesa"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Vencimento"/>
+				</f:facet>
+				<h:outputText value="22/10/2020"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Pagamento"/>
+				</f:facet>
+				<h:outputText value="20/10/2020"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="situação"/>
+				</f:facet>
+				<h:outputText value="Pago"/>
+			</h:column>
+			<h:column>
+				<h:graphicImage value="/imagens/editar.png"/>
+				<h:graphicImage value="/imagens/excluir.png"/>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

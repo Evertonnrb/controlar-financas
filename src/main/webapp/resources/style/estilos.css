@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+*{
+	font-family: 'Ubuntu', sans-serif;
+}
+.linha1{
+	background: #cacaca;
+}
+.linh2{
+	background: #fff;
+}
+.cabecalho{
+	background: #1c1c1c;
+	color:#fff;
+	font-size: 22px;
+	line-height: 28px;
+	width: 50px;
+	text-align: left;
+}
+.tabela{
+	border: 1px solid rgba(0,0,0,.3);
+	border-radius: 8px;
+	padding: 8px;
+}
+.despesa{
+	color:#DC143C;
+}
+.receita{
+	color:#1E90FF;
+}
+.cancelado{
+	color:#FF4500;
+	text-decoration: line-through;
+}
+.espaco-esquerda{
+	margin-right:10px;
+}
+
+.botoes{
+	height: 40px;
+	width: 120px;
+	background: #87CEFA;
+	color:#000;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+.bts{
+	margin-left: 10px;
+	padding: 8px;	
+}
+.tudo{
+	top:10%;
+	margin: auto;
+}
