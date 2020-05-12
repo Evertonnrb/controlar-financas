@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Novo lançamento</title>
+<h:outputStylesheet library="style" name="estilos.css"/>
+<h:outputScript library="script" name="script.js"/>
+</h:head>
+<h:body>
+	<div class="tudo">
+	
+		<h:graphicImage value="/imagens/logo.png"/>
+		
+		<h:form id="formNovoLancamento">
+			
+			<div class="bts">
+				<h:button id="btNovo" styleClass="espaco-esquerda botoes" value="Novo" outcome="cadastro-lancamento"/>
+				<h:button id="btConsulta" styleClass="botoes" value="Consulta" outcome="lancamentos"/>
+			</div>
+		
+		<h:messages showDetail="true" showSummary="true"
+			styleClass="box-message" errorClass="error" infoClass="info"/>
+		
+		<h:panelGrid columns="2">
+		
+			<h:outputLabel value="Tipo"/>	
+			<h:selectOneRadio value="#{cadastroLancamentoBean.lancamento.tipoLancamento}" required="true" label="Tipo Lançamento">
+				<f:selectItems value="#{cadastroLancamentoBean.tipos}"
+				var="lancamento" itemLabel="#{lancamento.descricao}" itemValue="#{lancamento}"/>
+			</h:selectOneRadio>
+			
+			<h:outputLabel value="Pessoa"/>
+			<h:selectOneMenu required="true" label="Pessoa" value="#{cadastroLancamentoBean.lancamento.pessoa}">
+				<f:selectItem itemLabel="-- Selecione --" noSelectionOption="true"/>
+				<f:selectItems value="#{cadastroLancamentoBean.pessoas}"
+				var="pessoa" itemLabel="#{pessoa.nome}" itemValue="#{pessoa}"/>
+<!-- 				<f:converter converterId="br.com.domain.bean.PessoaConverter"/> -->
+			</h:selectOneMenu>
+		
+			<h:outputLabel value="Descrição" for="txtDescricao"/>
+			<h:inputText id="txtDescricao" size="60" label="Descrição" required="true" value="#{cadastroLancamentoBean.lancamento.descricao}"/>
+		
+			<h:outputLabel value="Valor" for="txtValor"/>
+			<h:inputText id="txtValor" size="50" label="valor" required="true" value="#{cadastroLancamentoBean.lancamento.valor}">
+				<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2"/>
+				<f:validateDoubleRange minimum="0"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Data de Vencimento" for="txtDataVencimento"/>
+			<h:inputText size="40" id="txtDataVencimento" required="true" label="Data de vencimento" value="#{cadastroLancamentoBean.lancamento.dataVencimento}">
+				<f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy"/>
+			</h:inputText>
+		
+			<h:outputText/>
+			<h:panelGroup>
+				<h:selectBooleanCheckbox value="#{cadastroLancamentoBean.lancamento.pago}" 
+				immediate="true" valueChangeListener="#{cadastroLancamentoBean.lacamanetoPagoModificado}"
+				onchange="submit()"/>
+				<h:outputLabel value="Conta paga" id="checkPago"/>
+			</h:panelGroup>			
+		
+			<h:outputLabel value="Data de pagamento" for="txtDataPagamento" rendered="#{cadastroLancamentoBean.lancamento.pago}"/>
+			<h:inputText size="40" id="txtDataPagamento" label="Data de Pagamento" value="#{cadastroLancamentoBean.lancamento.dataPagamento}"
+			rendered="#{cadastroLancamentoBean.lancamento.pago}">
+				<f:convertDateTime locale="pt_BR" pattern="dd/MM/yyyy"/>
+				<f:attribute name="checado" value="#{cadastroLancamentoBean.lancamento.pago}"/>
+				<f:validator validatorId="br.com.domain.validator.DataFuturaValidator"/>
+				<f:validator validatorId="br.com.domain.validator.RequeridoCondicionalValidator"/>
+			</h:inputText>
+		
+			<h:outputLabel/>
+			<h:commandButton value="Cadastrar" action="#{cadastroLancamentoBean.cadastrar}"/>
+		
+		</h:panelGrid>
+	</h:form>
+	</div>
+</h:body>
+</html>

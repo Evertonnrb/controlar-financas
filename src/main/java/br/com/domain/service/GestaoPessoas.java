@@ -13,8 +13,11 @@ public class GestaoPessoas {
 	
 	static {
 		pessoas.put(1, new Pessoa(1	, "Silva Sauro"));
-		pessoas.put(1, new Pessoa(2	, "Lava jato"));
-		pessoas.put(1, new Pessoa(1	, "Sorveteria"));
+		pessoas.put(2, new Pessoa(2	, "Lava jato"));
+		pessoas.put(3, new Pessoa(3	, "Sorveteria"));
+		pessoas.put(4, new Pessoa(4	, "cs 1"));
+		pessoas.put(5, new Pessoa(5	, "cs2"));
+		pessoas.put(6, new Pessoa(6	, "ap 102"));
 	}
 	
 	public List<Pessoa> listarTodos(){

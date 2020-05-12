@@ -2,7 +2,7 @@ package br.com.domain.model.enuns;
 
 public enum TipoLancamento {
 
-	RECEITA("Receita"), DESPESA("Despesa");
+	RECEITA("Receita"), DESPESA("Despesa"),CALOTE("Calote"),INVESTIMENTO("Investimento");
 
 	private String descricao;
 
@@ -10,8 +10,8 @@ public enum TipoLancamento {
 		this.descricao = descricao;
 	}
 
-	public String descricao() {
-		return this.descricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
 }

@@ -9,6 +9,17 @@
 .linh2{
 	background: #fff;
 }
+.info{
+	color: #5F9EA0;
+}
+.error{
+	color: #FF6347;
+}
+.box-message{
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+}
 .cabecalho{
 	background: #1c1c1c;
 	color:#fff;
